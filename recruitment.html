@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Recruitment Dashboard</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="Recruitment.js" defer></script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Remix Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+
+</head>
+
+<body class="bg-[#f5f7fb] font-['Inter']">
+
+  <div class="flex min-h-screen">
+
+    <!-- SIDEBAR -->
+    <aside class="w-[260px] bg-[#eef2f7] border-r border-gray-200 p-5">
+
+      <!-- Logo -->
+      <div class="mb-10 pl-10">
+        <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780245572/Text_e0vh6o.png" alt="HRAfrica logo" class="w-[60%]">
+      </div>
+
+      <!-- Menu -->
+      <nav class="ml-10">
+
+        <a href="dashboard.html"
+          class="flex items-center gap-3 text-gray-600 hover:bg-blue-100 transition p-3 rounded-xl">
+          <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Dashboard_button_bxsf4e.png" alt="Dashboard logo">
+          Dashboard
+        </a>
+
+        <a href="directory.html"
+          class="flex items-center gap-3 text-gray-600 hover:bg-blue-100 transition p-3 rounded-xl">
+          <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407708/Icon_2_hs0hvr.png" alt="Directory logo">
+          Directory
+        </a>
+
+        <a href="recruitment.html"
+          class="flex items-center gap-3 bg-blue-600 text-white p-3 rounded-xl shadow-lg shadow-blue-200">
+          <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407708/Icon_3_ycnezx.png" alt="Recruitment logo">
+          Recruitment
+        </a>
+
+        <a href="attendance.html"
+          class="flex items-center gap-3 text-gray-600 hover:bg-blue-100 transition p-3 rounded-xl">
+          <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780408183/Container_2_egkx1n.png" alt="Attendance Logo">
+          Attendance
+        </a>
+
+        <a href="leave.html"
+          class="flex items-center gap-3 text-gray-600 hover:bg-blue-100 transition p-3 rounded-xl">
+          <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407800/Icon_5_esqxfl.png" alt="Leave management logo">
+          Leave Management
+        </a>
+
+        <a href="#"
+          class="flex items-center gap-3 text-gray-600 hover:bg-blue-100 transition p-3 rounded-xl">
+          <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Container_ax5qwf.png" alt="Payroll logo">
+          Payroll
+        </a>
+
+        <a href="#"
+          class="flex items-center gap-3 text-gray-600 hover:bg-blue-100 transition p-3 rounded-xl">
+          <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Icon_4_inxem4.png" alt="">
+          Analytics
+        </a>
+
+        <a href="#"
+            class="flex items-center gap-3 text-gray-700 hover:bg-blue-700 hover:text-white transition p-4 rounded-xl">
+
+            <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/ion_people-outline_e3qrc7.png" alt="Roles and permission logo" class="hover:invert">
+
+            Roles & Permission
+
+          </a>
+
+        <a href="#"
+          class="flex items-center gap-3 text-gray-600 hover:bg-blue-100 transition p-3 rounded-xl">
+          <i class="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Container_1_qfhnrd.png"></i>
+          Settings
+        </a>
+
+      </nav>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="flex-1 p-6">
+
+      <!-- TOP BAR -->
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 mb-8">
+
+        <div>
+          <h2 class="text-3xl font-bold text-gray-700">
+            Recruitment
+          </h2>
+        </div>
+
+        <div class="flex items-center gap-4">
+
+          <!-- Search -->
+          <div class="relative">
+
+            <input
+              type="text"
+              placeholder="Search job postings..."
+              class="w-[250px] bg-white border border-gray-200 rounded-full py-3 pl-11 pr-4 outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+            <i class="ri-search-line absolute left-4 top-3.5 text-gray-400"></i>
+
+          </div>
+
+          <!-- Notification -->
+          <button
+            class="w-11 h-11 bg-white rounded-full shadow flex items-center justify-center">
+            <i class="ri-notification-3-line text-lg"></i>
+          </button>
+
+          <!-- Avatar -->
+          <div
+            class="w-11 h-11 rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold">
+            RA
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- STATISTICS -->
+      <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
+
+        <!-- Card -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm">
+
+          <p class="text-xs text-gray-400 uppercase">
+            Active Jobs
+          </p>
+
+          <h3 class="text-4xl font-bold mt-3">
+            12
+          </h3>
+
+          <p class="text-green-500 text-sm mt-2">
+            +2 since last month
+          </p>
+
+        </div>
+
+        <!-- Card -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm">
+
+          <p class="text-xs text-gray-400 uppercase">
+            Total Candidates
+          </p>
+
+          <h3 class="text-4xl font-bold mt-3 text-blue-600">
+            486
+          </h3>
+
+          <p class="text-gray-400 text-sm mt-2">
+            12 new today
+          </p>
+
+        </div>
+
+        <!-- Card -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm">
+
+          <p class="text-xs text-gray-400 uppercase">
+            Time To Hire
+          </p>
+
+          <h3 class="text-4xl font-bold mt-3">
+            18d
+          </h3>
+
+          <p class="text-gray-400 text-sm mt-2">
+            Efficiency Gain
+          </p>
+
+        </div>
+
+        <!-- Blue Card -->
+        <div
+          class="bg-blue-600 text-white p-6 rounded-2xl shadow-lg shadow-blue-200 flex flex-col justify-between">
+
+          <div>
+            <p class="text-xs uppercase opacity-70">
+              Action
+            </p>
+
+            <h3 class="text-2xl font-semibold mt-3">
+              Post a new position
+            </h3>
+          </div>
+
+          <div class="flex justify-between items-center mt-8">
+
+            <button
+              class="w-11 h-11 rounded-full bg-white/20 hover:bg-white/30 transition">
+              <i class="ri-add-line"></i>
+            </button>
+
+            <button
+              class="w-11 h-11 rounded-full bg-white/20 hover:bg-white/30 transition">
+              <i class="ri-arrow-right-line"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ACTIVE POSTINGS -->
+      <section class="bg-white rounded-2xl p-6 shadow-sm mb-8">
+
+        <!-- Top -->
+        <div class="flex flex-col xl:flex-row xl:justify-between gap-5 mb-6">
+
+          <div>
+            <h3 class="text-2xl font-bold">
+              Active Postings
+            </h3>
+
+            <p class="text-gray-400 text-sm mt-1">
+              12 Jobs
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-3">
+
+            <select
+              class="border border-gray-200 rounded-xl px-4 py-3 outline-none">
+              <option>All Departments</option>
+            </select>
+
+            <select
+              class="border border-gray-200 rounded-xl px-4 py-3 outline-none">
+              <option>Status: All</option>
+            </select>
+
+            <button
+              id="createBtn"
+              class="bg-blue-600 hover:bg-blue-700 transition text-white px-5 py-3 rounded-xl">
+              + Create New Job
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- TABLE -->
+        <div class="overflow-x-auto">
+
+          <table class="w-full">
+
+            <!-- Head -->
+            <thead>
+
+              <tr class="border-b text-left text-sm text-gray-400">
+
+                <th class="pb-4">Job Title</th>
+                <th class="pb-4">Department</th>
+                <th class="pb-4">Status</th>
+                <th class="pb-4">Candidates</th>
+                <th class="pb-4">Date Posted</th>
+
+              </tr>
+
+            </thead>
+
+            <!-- Body -->
+            <tbody class="text-sm">
+
+              <!-- Row -->
+              <tr class="border-b hover:bg-gray-50 transition">
+
+                <td class="py-5">
+
+                  <h4 class="font-semibold text-gray-700">
+                    Senior Product Designer
+                  </h4>
+
+                  <p class="text-gray-400 mt-1">
+                    Remote • Full-time
+                  </p>
+
+                </td>
+
+                <td>Design</td>
+
+                <td>
+                  <span
+                    class="bg-green-100 text-green-600 text-xs px-3 py-1 rounded-full">
+                    Active
+                  </span>
+                </td>
+
+                <td>84</td>
+
+                <td>May 25, 2026</td>
+
+              </tr>
+
+              <!-- Row -->
+              <tr class="border-b hover:bg-gray-50 transition">
+
+                <td class="py-5">
+
+                  <h4 class="font-semibold text-gray-700">
+                    Staff Software Engineer
+                  </h4>
+
+                  <p class="text-gray-400 mt-1">
+                    Berlin • Hybrid
+                  </p>
+
+                </td>
+
+                <td>Engineering</td>
+
+                <td>
+                  <span
+                    class="bg-green-100 text-green-600 text-xs px-3 py-1 rounded-full">
+                    Active
+                  </span>
+                </td>
+
+                <td>126</td>
+
+                <td>May 23, 2026</td>
+
+              </tr>
+
+              <!-- Row -->
+              <tr class="hover:bg-gray-50 transition">
+
+                <td class="py-5">
+
+                  <h4 class="font-semibold text-gray-700">
+                    HR Operations Specialist
+                  </h4>
+
+                  <p class="text-gray-400 mt-1">
+                    London • On-site
+                  </p>
+
+                </td>
+
+                <td>People</td>
+
+                <td>
+                  <span
+                    class="bg-gray-200 text-gray-600 text-xs px-3 py-1 rounded-full">
+                    Draft
+                  </span>
+                </td>
+
+                <td>0</td>
+
+                <td>May 20, 2026</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+      <!-- BOTTOM SECTION -->
+      <section class="grid grid-cols-1 xl:grid-cols-3 gap-5">
+
+        <!-- PIPELINE -->
+        <div class="xl:col-span-2 bg-white rounded-2xl p-6 shadow-sm">
+
+          <div class="flex justify-between items-center mb-8">
+
+            <h3 class="text-xl font-bold">
+              Application Pipeline
+            </h3>
+
+            <button class="text-blue-600 text-sm">
+              View Full Analytics →
+            </button>
+
+          </div>
+
+          <!-- Bars -->
+          <div class="grid grid-cols-4 gap-4 h-56 items-end">
+
+            <!-- Bar -->
+            <div>
+
+              <p class="text-center text-sm mb-3">
+                Sourcing
+              </p>
+
+              <div class="bg-blue-100 rounded-xl h-44 flex items-end">
+
+                <div class="bg-blue-600 h-36 rounded-xl w-full"></div>
+
+              </div>
+
+            </div>
+
+            <!-- Bar -->
+            <div>
+
+              <p class="text-center text-sm mb-3">
+                Screening
+              </p>
+
+              <div class="bg-blue-100 rounded-xl h-44 flex items-end">
+
+                <div class="bg-blue-600 h-28 rounded-xl w-full"></div>
+
+              </div>
+
+            </div>
+
+            <!-- Bar -->
+            <div>
+
+              <p class="text-center text-sm mb-3">
+                Interview
+              </p>
+
+              <div class="bg-blue-100 rounded-xl h-44 flex items-end">
+
+                <div class="bg-blue-600 h-20 rounded-xl w-full"></div>
+
+              </div>
+
+            </div>
+
+            <!-- Bar -->
+            <div>
+
+              <p class="text-center text-sm mb-3">
+                Offer
+              </p>
+
+              <div class="bg-blue-100 rounded-xl h-44 flex items-end">
+
+                <div class="bg-blue-600 h-12 rounded-xl w-full"></div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- TIPS -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+
+          <div>
+
+            <h3 class="text-xl font-bold mb-4">
+              Hiring Tips
+            </h3>
+
+            <p class="text-gray-500 leading-7 text-sm">
+              Improve your candidate response rate by adding clear salary ranges to your job postings.
+            </p>
+
+            <button class="text-blue-600 mt-6">
+              Read Best Practices →
+            </button>
+
+          </div>
+
+          <a href="http://127.0.0.1:5500/Recruitment2.html#">
+            <button
+            class="bg-blue-600 hover:bg-blue-700 transition text-white py-3 rounded-xl mt-8 w-full">
+            Next
+          </button>
+          </a>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- External JavaScript -->
+  
+
+</body>
+</html>

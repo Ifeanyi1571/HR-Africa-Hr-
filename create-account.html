@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body class="bg-[white] min-h-screen flex items-center justify-center p-6">
+
+    <div class="w-full max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden">
+
+        <div class="grid md:grid-cols-2">
+
+            <!-- LEFT -->
+            <div class="p-10 lg:p-14 mr-0 sm:mr-12">
+
+                <!-- Logo -->
+                <img
+                    src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780245572/Text_e0vh6o.png"
+                    alt="HRFlow Africa"
+                    class="w-full max-w-[320px] md:w-48 lg:w-52 mb-10 "
+                >
+
+                <h2 class="font-inter text-xl font-bold text-gray-800 mb-2">
+                    Create your HR account
+                </h2>
+
+                <p class="font-jakarta text-gray-500 text-xs mb-10">
+                    Let's get started with your work E-mail
+                </p>
+
+                <form>
+
+                    <div class="mb-36">
+
+                        <label
+                            class="block font-jakarta text-sm font-bold text-gray-700 mb-2"
+                        >
+                            Work E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            required
+                            class="w-full h-12 px-4 border border-gray-300 rounded-md font-jakarta text-xs outline-none focus:border-[#3856D6]"
+                        >
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full h-12 bg-[#3856D6] hover:bg-blue-700 text-white rounded-md font-inter font-semibold transition"
+                    >
+                    <a href="email-verification.html">Continue</a>
+                        
+                    </button>
+
+                </form>
+
+                <p class="font-jakarta text-center text-xs text-gray-500 mt-5 mb-10">
+                    Already have an account?
+
+                    <a
+                        href="login.html"
+                        class="text-[#3856D6] font-medium"
+                    >
+                        Log in
+                    </a>
+                </p>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div
+                class="bg-[#e9e9eb] flex flex-col items-center justify-center p-10"
+            >
+
+                <img
+                    src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780245216/Image_1_o7twmf.png"
+                    alt="Account Illustration"
+                    class="w-[320px] mb-3 mt-5"
+                >
+
+                <h3
+                    class="font-inter text-xl font-semibold text-gray-800 mb-4 text-center"
+                >
+                    Secure. Private. Professional
+                </h3>
+
+                <p
+                    class="font-jakarta text-gray-500 text-center max-w-sm leading-relaxed"
+                >
+                    We'll only use your work email to set up your account and
+                    keep your organization secure.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Groupppp.html</title>
+    <link href="./User Groupppp_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-family-lucide/0.400.0/font-family-lucide.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #F8F9FC;
+            color: #1D2939;
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            width: 240px;
+            background-color: #EBF1FF;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .logo-container {
+            padding-left: 12px;
+        }
+
+        .logo-container img {
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-item a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            color: #475467;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .nav-item a:hover {
+            background-color: rgba(47, 84, 235, 0.05);
+            color: #2F54EB;
+        }
+
+        .nav-item.active a {
+            background-color: #2F54EB;
+            color: #FFFFFF;
+        }
+
+        .nav-item svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* --- MAIN CONTENT --- */
+        .main-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        /* Top Header Bar */
+        .top-header {
+            background-color: #FFFFFF;
+            padding: 16px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #EAECF0;
+        }
+
+        .search-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .search-wrapper svg {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667085;
+            width: 18px;
+            height: 18px;
+        }
+
+        .global-search {
+            width: 100%;
+            padding: 10px 14px 10px 42px;
+            border: 1px solid #D0D5DD;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            background-color: #F9FAFB;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .icon-actions {
+            display: flex;
+            gap: 16px;
+            color: #667085;
+            cursor: pointer;
+        }
+
+        .notification-badge {
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background-color: #D92D20;
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 5px;
+            border-radius: 10px;
+            border: 1px solid #fff;
+        }
+
+        .profile-widget {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile-info {
+            text-align: right;
+        }
+
+        .profile-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1D2939;
+        }
+
+        .profile-role {
+            font-size: 12px;
+            color: #667085;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #E4E7EC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- CONTAINER & PAGE HEADER --- */
+        .content-container {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .page-title-area {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .back-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #101828;
+            cursor: pointer;
+        }
+
+        .page-subtitle {
+            font-size: 14px;
+            color: #667085;
+        }
+
+        /* Navigation Tabs */
+        .status-tabs {
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid #EAECF0;
+            padding-bottom: 4px;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #667085;
+            cursor: pointer;
+            border-radius: 8px;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .tab.active {
+            background-color: #2F54EB;
+            color: #FFFFFF;
+        }
+
+        /* --- TABLE BOARD / CARD --- */
+        .data-card {
+            background-color: #FFFFFF;
+            border: 1px solid #EAECF0;
+            border-radius: 12px;
+            box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.1);
+            overflow: hidden;
+        }
+
+        .table-toolbar {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-bottom: 1px solid #EAECF0;
+        }
+
+        .table-search-wrapper {
+            position: relative;
+            width: 240px;
+        }
+
+        .table-search-wrapper svg {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667085;
+            width: 16px;
+            height: 16px;
+        }
+
+        .table-search {
+            width: 100%;
+            padding: 8px 12px 8px 36px;
+            border: 1px solid #D0D5DD;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .sort-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border: 1px solid #D0D5DD;
+            border-radius: 8px;
+            background: #FFF;
+            font-size: 14px;
+            font-weight: 500;
+            color: #344054;
+            cursor: pointer;
+        }
+
+        /* --- THE TABLE --- */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: #F9FAFB;
+            padding: 12px 24px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #475467;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid #EAECF0;
+        }
+
+        td {
+            padding: 16px 24px;
+            font-size: 14px;
+            color: #475467;
+            border-bottom: 1px solid #EAECF0;
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Checkbox styling */
+        .checkbox-cell {
+            width: 48px;
+            padding-right: 0;
+        }
+
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            border: 1px solid #D0D5DD;
+            cursor: pointer;
+        }
+
+        /* User Identity Layout */
+        .user-identity {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #F2F4F7;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: #101828;
+        }
+
+        .user-email {
+            font-size: 13px;
+            color: #667085;
+        }
+
+        /* Status Badges */
+        .badge-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge-status::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .badge-status.active {
+            background-color: #ECFDF3;
+            color: #027A48;
+        }
+        .badge-status.active::before { background-color: #12B76A; }
+
+        .badge-status.onboarded {
+            background-color: #EEF4FF;
+            color: #3538CD;
+        }
+        .badge-status.onboarded::before { background-color: #444CE7; }
+
+        .badge-status.inactive {
+            background-color: #F2F4F7;
+            color: #344054;
+        }
+        .badge-status.inactive::before { background-color: #667085; }
+
+        /* Actions styling */
+        .action-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: #344054;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .action-link:hover {
+            color: #2F54EB;
+        }
+
+        .more-btn {
+            background: none;
+            border: none;
+            color: #667085;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        /* --- PAGINATION --- */
+        .pagination-bar {
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #EAECF0;
+            font-size: 14px;
+            color: #344054;
+        }
+
+        .pagination-pages {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .page-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #475467;
+        }
+
+        .page-num.active {
+            background-color: #2F54EB;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        .page-ellipsis {
+            padding: 0 4px;
+            color: #667085;
+        }
+
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 72px;
+                padding: 24px 8px;
+                align-items: center;
+            }
+            .logo-container, .nav-text {
+                display: none;
+            }
+            .nav-item a {
+                justify-content: center;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-header {
+                padding: 16px;
+            }
+            .global-search {
+                max-width: 180px;
+            }
+            .profile-info {
+                display: none;
+            }
+            .content-container {
+                padding: 16px;
+            }
+            .table-toolbar {
+                flex-direction: column;
+                align-items: stroke;
+            }
+            .table-search-wrapper {
+                width: 100%;
+            }
+            .sort-btn {
+                justify-content: center;
+            }
+            .pagination-bar {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780245572/Text_e0vh6o.png" alt="HRFlow Africa">
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="dashboard.html">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="directory.html">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <span class="nav-text">Directory</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="recruitment.html">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    <span class="nav-text">Recruitment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="attendance.html">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span class="nav-text">Attendance</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="leave.html">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
+                    <span class="nav-text">Leave Management</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="12" y1="4" x2="12" y2="20"></line><circle cx="12" cy="12" r="4"></circle></svg>
+                    <span class="nav-text">Payroll</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <span class="nav-text">Analytics</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a href="CreateRoleee.html">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span class="nav-text">Roles &amp; Permission</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <span class="nav-text">Settings</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <div class="main-wrapper">
+        
+        <header class="top-header">
+            <div class="search-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" class="global-search" placeholder="Search">
+            </div>
+            <div class="header-right">
+                <div class="icon-actions">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <div class="notification-badge">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+                <div class="profile-widget">
+                    <div class="profile-info">
+                        <div class="profile-name">Rosita Andrew</div>
+                        <div class="profile-role">HR Director</div>
+                    </div>
+                    <div class="avatar">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#667085" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-container">
+            <div class="page-title-area">
+                <div class="back-title">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    User Group
+                </div>
+                <p class="page-subtitle">You can manage all permission and setting here of internal user of HRFlow Africa</p>
+            </div>
+
+            <div class="status-tabs">
+                <div class="tab active">All User</div>
+                <div class="tab">Active</div>
+                <div class="tab">Onboarded</div>
+                <div class="tab">Inactive</div>
+            </div>
+
+            <div class="data-card">
+                <div class="table-toolbar">
+                    <div class="table-search-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" class="table-search" placeholder="Search User">
+                    </div>
+                    <button class="sort-btn">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                        Sort By
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="checkbox-cell"><input type="checkbox"></th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>User Group</th>
+                                <th>Date Added</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="checkbox-cell"><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-identity">
+                                        <div class="user-avatar" style="background-color: #E4E7EC;"></div>
+                                        <div class="user-details">
+                                            <span class="user-name">Olamilekan Smart</span>
+                                            <span class="user-email">olamilekan.s@hrfa.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="badge-status active">Active</span></td>
+                                <td>Engineering</td>
+                                <td>24 April 2026</td>
+                                <td>
+                                    <a href="http://127.0.0.1:5500/index.html#" class="action-link">
+                                        View Profile
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                </td>
+                                <td>
+                                    <button class="more-btn">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="checkbox-cell"><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-identity">
+                                        <div class="user-avatar" style="background-color: #E4E7EC;"></div>
+                                        <div class="user-details">
+                                            <span class="user-name">Ada Magdalene</span>
+                                            <span class="user-email">a.magdalene@hrfa.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="badge-status onboarded">Onboarded</span></td>
+                                <td>Product &amp; Design</td>
+                                <td>07 May 2026</td>
+                                <td>
+                                    <a href="http://127.0.0.1:5500/index.html#" class="action-link">
+                                        View Profile
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                </td>
+                                <td>
+                                    <button class="more-btn">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="checkbox-cell"><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-identity">
+                                        <div class="user-avatar" style="background-color: #E4E7EC;"></div>
+                                        <div class="user-details">
+                                            <span class="user-name">Akintumile Olayemi</span>
+                                            <span class="user-email">a.olayemi@hrfa.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="badge-status inactive">Inactive</span></td>
+                                <td>Growth</td>
+                                <td>03 April 2026</td>
+                                <td>
+                                    <a href="http://127.0.0.1:5500/index.html#" class="action-link">
+                                        View Profile
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                </td>
+                                <td>
+                                    <button class="more-btn">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="checkbox-cell"><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-identity">
+                                        <div class="user-avatar" style="background-color: #E4E7EC;"></div>
+                                        <div class="user-details">
+                                            <span class="user-name">Onifade Adeola</span>
+                                            <span class="user-email">a.onifade@hrfa.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="badge-status active">Active</span></td>
+                                <td>Sales</td>
+                                <td>14 February 2026</td>
+                                <td>
+                                    <a href="http://127.0.0.1:5500/index.html#" class="action-link">
+                                        View Profile
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                </td>
+                                <td>
+                                    <button class="more-btn">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination-bar">
+                    <div>Showing 1 to 4 of 1,248 entries</div>
+                    <div class="pagination-pages">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="cursor:pointer;"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        <a href="http://127.0.0.1:5500/index.html#" class="page-num active">1</a>
+                        <a href="http://127.0.0.1:5500/index.html#" class="page-num">2</a>
+                        <a href="http://127.0.0.1:5500/index.html#" class="page-num">3</a>
+                        <span class="page-ellipsis">...</span>
+                        <a href="http://127.0.0.1:5500/index.html#" class="page-num">312</a>
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="cursor:pointer;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>

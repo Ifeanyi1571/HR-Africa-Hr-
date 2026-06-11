@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Permission group permission.html</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./User Permission group permission_files/css2" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    /* --- Base Reset & Variables --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    :root {
+      --bg-sidebar: #ebf1fa;
+      --bg-main: #f8fafc;
+      --primary-blue: #3b66f5;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --toggle-active: #10b981;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      overflow: hidden;
+    }
+
+    /* --- Sidebar Styles --- */
+    .sidebar {
+      width: 240px;
+      background-color: var(--bg-sidebar);
+      display: flex;
+      flex-direction: column;
+      padding: 24px 0;
+      border-right: 1px solid var(--border-color);
+    }
+
+    .logo-container {
+      padding: 0 24px 32px 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      font-size: 24px;
+      color: var(--primary-blue);
+      font-weight: 700;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 18px;
+      color: #0f172a;
+    }
+
+    .logo-sub {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: -2px;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 24px;
+      color: #475569;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .nav-item a:hover {
+      background-color: rgba(59, 102, 245, 0.05);
+      color: var(--primary-blue);
+    }
+
+    .nav-item.active a {
+      background-color: var(--primary-blue);
+      color: white;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      margin-right: 12px;
+    }
+
+    /* --- Main Layout --- */
+    .main-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    /* --- Top Navbar --- */
+    .navbar {
+      height: 70px;
+      background-color: white;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: #f1f5f9;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 8px 16px;
+      width: 320px;
+    }
+
+    .search-bar i {
+      color: var(--text-muted);
+      margin-right: 8px;
+    }
+
+    .search-bar input {
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .icon-btn {
+      font-size: 20px;
+      color: var(--text-muted);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background-color: #ef4444;
+      color: white;
+      font-size: 10px;
+      padding: 2px 5px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: #cbd5e1;
+    }
+
+    .user-info {
+      text-align: right;
+    }
+
+    .user-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .user-role {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* --- Content Area --- */
+    .content-body {
+      padding: 32px 40px;
+      max-width: 900px;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .breadcrumbs i {
+      cursor: pointer;
+      font-size: 20px;
+      margin-right: 4px;
+    }
+
+    .breadcrumbs span.separator {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Target User Header */
+    .target-user-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .target-user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .target-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .target-email {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .view-profile-link {
+      font-size: 13px;
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Info Alert Box */
+    .alert-box {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #1e40af;
+      margin-bottom: 24px;
+    }
+
+    /* --- Permissions Control Panel --- */
+    .panel {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      background-color: #f8fafc;
+    }
+
+    .tabs {
+      display: flex;
+    }
+
+    .tab {
+      padding: 14px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      border-right: 1px solid var(--border-color);
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background-color: white;
+      color: var(--text-dark);
+      font-weight: 600;
+      border-bottom: 2px solid transparent; /* Mimicking visual weight of active state */
+    }
+
+    .close-panel-btn {
+      padding: 0 20px;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Permission Rows */
+    .permission-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .permission-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .permission-item:last-child {
+      border-bottom: none;
+    }
+
+    .permission-details {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .permission-icon-wrapper {
+      width: 40px;
+      height: 40px;
+      background-color: #eff6ff;
+      color: var(--primary-blue);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .permission-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .permission-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #334155;
+    }
+
+    .permission-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* --- Custom Switch Styles --- */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #cbd5e1;
+      transition: .3s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--toggle-active);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    /* --- Footer Action Button --- */
+    .action-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .btn-save {
+      background-color: var(--primary-blue);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 32px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-save:hover {
+      background-color: #254adb;
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="logo-container">
+      <div class="logo-icon"><i class="ri-pulse-line"></i></div>
+      <div>
+        <span class="logo-text">HFA</span>
+        <span class="logo-sub">HRFlow Africa</span>
+      </div>
+    </div>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="dashboard.html"><i class="ri-dashboard-line"></i> Dashboard</a></li>
+      <li class="nav-item"><a href="directory.html"><i class="ri-team-line"></i> Directory</a></li>
+      <li class="nav-item"><a href="recruitment.html"><i class="ri-briefcase-line"></i> Recruitment</a></li>
+      <li class="nav-item"><a href="attendance.html"><i class="ri-calendar-check-line"></i> Attendance</a></li>
+      <li class="nav-item"><a href="leave.html"><i class="ri-calendar-todo-line"></i> Leave Management</a></li>
+      <li class="nav-item"><a href="#"><i class="ri-wallet-3-line"></i> Payroll</a></li>
+      <li class="nav-item"><a href="#"><i class="ri-bar-chart-box-line"></i> Analytics</a></li>
+      <li class="nav-item active"><a href="CreateRoleee.html"><i class="ri-user-settings-line"></i> Roles &amp; Permission</a></li>
+      <li class="nav-item"><a href="http://127.0.0.1:5500/index.html#"><i class="ri-settings-4-line"></i> Settings</a></li>
+    </ul>
+  </aside>
+
+  <main class="main-container">
+    
+    <header class="navbar">
+      <div class="search-bar">
+        <i class="ri-search-line"></i>
+        <input type="text" placeholder="Search">
+      </div>
+      <div class="nav-actions">
+        <div class="icon-btn"><i class="ri-chat-4-line"></i></div>
+        <div class="icon-btn">
+          <i class="ri-notification-3-line"></i>
+          <span class="badge">3</span>
+        </div>
+        <div class="user-profile">
+          <div class="user-info">
+            <div class="user-name">Rosita Andrew</div>
+            <div class="user-role">HR Director</div>
+          </div>
+          <img class="user-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=100&amp;q=80" alt="Rosita Andrew">
+        </div>
+      </div>
+    </header>
+
+    <div class="content-body">
+      
+      <div class="breadcrumbs">
+        <i class="ri-arrow-left-s-line"></i>
+        <span>User Group</span>
+        <span class="separator">&gt;</span>
+        <span>User Permission</span>
+      </div>
+
+      <div class="target-user-card">
+        <div class="target-user-info">
+          <img class="user-avatar" style="width:42px; height:42px;" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=100&amp;q=80" alt="Olamilekan Smart">
+          <div>
+            <div class="target-name">Olamilekan Smart</div>
+            <div class="target-email">olamilekan.s@hrfa.com</div>
+          </div>
+        </div>
+        <a href="http://127.0.0.1:5500/index.html#" class="view-profile-link">View Profile <i class="ri-external-link-line"></i></a>
+      </div>
+
+      <div class="alert-box">
+        <i class="ri-error-warning-line"></i>
+        <span>Selecting a different user group will result in change to the permission list.</span>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <div class="tabs">
+            <div class="tab active">User Group</div>
+            <div class="tab">Consultant</div>
+          </div>
+          <div class="close-panel-btn"><i class="ri-close-line"></i></div>
+        </div>
+
+        <div class="permission-list">
+          
+          <div class="permission-item">
+            <div class="permission-details">
+              <div class="permission-icon-wrapper"><i class="ri-bar-chart-fill"></i></div>
+              <div class="permission-text">
+                <span class="permission-title">Auditing</span>
+                <span class="permission-desc">Enable access to review and approve candidates.</span>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked="">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="permission-item">
+            <div class="permission-details">
+              <div class="permission-icon-wrapper"><i class="ri-hand-pointer-line"></i></div>
+              <div class="permission-text">
+                <span class="permission-title">Allocate as job authority</span>
+                <span class="permission-desc">Grant the usercomplete access for reviewing</span>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked="">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="permission-item">
+            <div class="permission-details">
+              <div class="permission-icon-wrapper"><i class="ri-checkbox-circle-line"></i></div>
+              <div class="permission-text">
+                <span class="permission-title">Candidate activation</span>
+                <span class="permission-desc">Enable candidate activation for commencing work.</span>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked="">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="permission-item">
+            <div class="permission-details">
+              <div class="permission-icon-wrapper"><i class="ri-file-text-line"></i></div>
+              <div class="permission-text">
+                <span class="permission-title">Candidate documents</span>
+                <span class="permission-desc">Allow the user to view all candidate documents</span>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="permission-item">
+            <div class="permission-details">
+              <div class="permission-icon-wrapper"><i class="ri-money-dollar-circle-line"></i></div>
+              <div class="permission-text">
+                <span class="permission-title">Financial information</span>
+                <span class="permission-desc">Enable access to candidate financial information</span>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="permission-item">
+            <div class="permission-details">
+              <div class="permission-icon-wrapper"><i class="ri-bar-chart-fill"></i></div>
+              <div class="permission-text">
+                <span class="permission-title">Job posting</span>
+                <span class="permission-desc">Allow bulk texts posting jobs to paid job boards</span>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="action-footer">
+        <button class="btn-save">Save changes</button>
+      </div>
+
+    </div>
+  </main>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

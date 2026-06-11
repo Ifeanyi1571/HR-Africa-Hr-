@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>splash</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script src="js/splash.js" defer></script>
+
+</head>
+<body>
+    <section class="min-h-screen flex items-center justify-center bg-[#f8f9fc] p-6">
+  <div
+    class="w-full max-w-5xl bg-white rounded-lg overflow-hidden shadow-lg grid grid-cols-1 md:grid-cols-2"
+  >
+    <!-- Left Side -->
+    <div class="flex flex-col items-center justify-center px-10 py-16">
+      <img
+        src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780219621/Logo_svlrvu.png"
+        alt="HRFlow Africa"
+        class="w-64 mb-16"
+      />
+
+      <div class="flex gap-4">
+        <button
+          id="loginBtn"
+          class="font-jakarta px-8 py-2 border border-[#3856D6] text-blue-600 rounded-md hover:bg-blue-50 transition"
+        >
+          Login
+        </button>
+
+        <button
+          id="signupBtn"
+          class="font-jakarta px-8 py-2 bg-[#3856D6] text-white rounded-md hover:bg-blue-700 transition"
+        >
+          Sign Up
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Side -->
+    <div
+      class="relative flex items-center justify-center bg-[#dcdcde]"
+    >
+      <img
+        src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780219622/Frame_198_nj4zwb.png"
+        alt="HR Illustration"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+</body>
+</html>

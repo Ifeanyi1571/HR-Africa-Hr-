@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Email Verification</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+
+    <div class="w-full max-w-5xl bg-white rounded-lg shadow-lg p-8 md:p-12">
+
+        <!-- Logo -->
+        <div class="mb-10">
+            <img
+                src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780245572/Text_e0vh6o.png"
+                alt="HRFlow Africa"
+                class="w-full max-w-[320px] md:w-48 lg:w-52 mb-10"
+            >
+        </div>
+
+        <!-- Content -->
+        <div class="flex flex-col items-center text-center">
+
+            <img
+                src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780268408/Gemini_Generated_Image_gg8e3ggg8e3ggg8e_1_pv67qz.png"
+                alt="Verify Email"
+                class="mb-8 w-full max-w-xs"
+            >
+
+            <h2
+                class="font-inter text-xl md:text-2xl font-semibold text-gray-800 mb-6"
+            >
+                Verify your Email
+            </h2>
+
+            <p
+                class="font-jakarta text-gray-500 mb-2"
+            >
+                We've sent a verification link to
+            </p>
+
+            <p
+                class="font-jakarta font-semibold text-[#3856D6] mb-6"
+            >
+                Boluwatife@mail.com
+            </p>
+
+            <p
+                class="font-jakarta text-gray-500 mb-10"
+            >
+                Click the link in the mail to continue.
+            </p>
+
+            <button
+                id="resendBtn"
+                class="font-jakarta text-[#3856D6] font-semibold hover:text-blue-700 transition"
+            >
+                Resend Email
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="verify-email.js"></script>
+
+</body>
+</html>

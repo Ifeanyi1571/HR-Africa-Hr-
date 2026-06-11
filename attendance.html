@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance Dashboard</title>
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="Attendance.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="font-inter bg-gray-100">
+
+<div class="flex min-h-screen">
+
+  <!-- SIDEBAR -->
+  <aside class="w-64 bg-[#eef2ff] border-r border-gray-200">
+
+    <!-- LOGO -->
+    <div class="p-5 border-b">
+      <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780245572/Text_e0vh6o.png" alt="HR Africa logo" class="w-[60%]">
+    </div>
+
+    <!-- MENU -->
+    <nav class="p-4 space-y-2">
+
+      <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-white">
+        <span>📊</span>
+        Dashboard
+      </a>
+
+      <a href="directory.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-white">
+        <span>👥</span>
+        Directory
+      </a>
+
+      <a href="recruitment.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-white">
+        <span>👜</span>
+        Recruitment
+      </a>
+
+      <a href="attendance.html" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-blue-600 text-white">
+        <span>🗓️</span>
+        Attendance
+      </a>
+
+      <a href="leave.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-white">
+        <span>📄</span>
+        Leave Management
+      </a>
+
+      <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-white">
+        <span>💳</span>
+        Payroll
+      </a>
+
+      <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-white">
+        <span>📈</span>
+        Analytics
+      </a>
+
+      <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-white">
+        <span>🔐</span>
+        Roles & Permission
+      </a>
+
+      <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-white">
+        <span>⚙️</span>
+        Settings
+      </a>
+
+    </nav>
+
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-1 p-6">
+
+    <!-- TOP BAR -->
+    <div class="flex justify-between items-center mb-6">
+
+      <div>
+        <h2 class="text-2xl font-bold text-gray-800">
+          Attendance Management
+        </h2>
+        <p class="text-sm text-gray-400">
+          Monday, May 23, 2026
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+
+        <button class="border px-4 py-2 rounded-lg text-sm bg-white">
+          Filter
+        </button>
+
+        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm">
+          Export Data
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- STATS -->
+    <div class="grid grid-cols-5 gap-4 mb-6">
+
+      <div class="bg-white rounded-xl p-4 shadow-sm">
+        <p class="text-xs text-gray-400">PRESENT</p>
+        <h3 class="text-4xl font-bold mt-2">245</h3>
+      </div>
+
+      <div class="bg-white rounded-xl p-4 shadow-sm">
+        <p class="text-xs text-red-500">ABSENT</p>
+        <h3 class="text-4xl font-bold mt-2">12</h3>
+      </div>
+
+      <div class="bg-white rounded-xl p-4 shadow-sm">
+        <p class="text-xs text-orange-500">LATE</p>
+        <h3 class="text-4xl font-bold mt-2">5</h3>
+      </div>
+
+      <div class="bg-white rounded-xl p-4 shadow-sm">
+        <p class="text-xs text-blue-500">REMOTE</p>
+        <h3 class="text-4xl font-bold mt-2">28</h3>
+      </div>
+
+      <div class="bg-[#3d5af1] rounded-xl p-4 text-white">
+        <p class="text-xs opacity-80">AVG RATE</p>
+        <h3 class="text-4xl font-bold mt-2">94%</h3>
+      </div>
+
+    </div>
+
+    <!-- CHARTS -->
+    <div class="grid grid-cols-3 gap-6 mb-6">
+
+      <!-- WEEKLY TREND -->
+      <div class="col-span-2 bg-white rounded-xl p-5">
+
+        <div class="flex justify-between mb-5">
+          <h3 class="font-semibold">
+            Weekly Trend
+          </h3>
+
+          <button class="text-xs bg-gray-100 px-3 py-1 rounded-lg">
+            Last 7 Days
+          </button>
+        </div>
+
+        <div class="h-64 flex items-end gap-3">
+
+          <div class="flex flex-col items-center flex-1">
+            <div class="bg-gray-300 w-full rounded-t-lg h-32"></div>
+            <span class="text-xs mt-2">Mon</span>
+          </div>
+
+          <div class="flex flex-col items-center flex-1">
+            <div class="bg-gray-300 w-full rounded-t-lg h-28"></div>
+            <span class="text-xs mt-2">Tue</span>
+          </div>
+
+          <div class="flex flex-col items-center flex-1">
+            <div class="bg-blue-600 w-full rounded-t-lg h-44"></div>
+            <span class="text-xs mt-2">Wed</span>
+          </div>
+
+          <div class="flex flex-col items-center flex-1">
+            <div class="bg-gray-300 w-full rounded-t-lg h-40"></div>
+            <span class="text-xs mt-2">Thu</span>
+          </div>
+
+          <div class="flex flex-col items-center flex-1">
+            <div class="bg-gray-300 w-full rounded-t-lg h-20"></div>
+            <span class="text-xs mt-2">Fri</span>
+          </div>
+
+          <div class="flex flex-col items-center flex-1">
+            <div class="bg-gray-300 w-full rounded-t-lg h-4"></div>
+            <span class="text-xs mt-2">Sat</span>
+          </div>
+
+          <div class="flex flex-col items-center flex-1">
+            <div class="bg-gray-300 w-full rounded-t-lg h-2"></div>
+            <span class="text-xs mt-2">Sun</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- DEPARTMENT -->
+      <div class="bg-white rounded-xl p-5">
+
+        <h3 class="font-semibold mb-6">
+          Department Distribution
+        </h3>
+
+        <div class="flex justify-center">
+
+          <div class="relative w-40 h-40 rounded-full border-[12px] border-blue-600">
+
+            <div class="absolute inset-3 rounded-full border-[12px] border-green-600"></div>
+
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span class="text-3xl font-bold">312</span>
+              <span class="text-xs text-gray-500">
+                Total Staff
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 mt-6 text-sm">
+
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-blue-600"></span>
+            Engineering
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-green-600"></span>
+            Marketing
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-orange-500"></span>
+            Sales
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-gray-400"></span>
+            Others
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TABLE + ACTIVITY -->
+    <div class="grid grid-cols-4 gap-6">
+
+      <!-- TABLE -->
+      <div class="col-span-3 bg-white rounded-xl p-5">
+
+        <h3 class="font-semibold mb-5">
+          Attendance Log
+        </h3>
+
+        <div class="overflow-x-auto">
+
+          <table class="w-full text-sm">
+
+            <thead class="text-left text-gray-400 border-b">
+              <tr>
+                <th class="pb-3">Employee</th>
+                <th class="pb-3">Department</th>
+                <th class="pb-3">Check-In</th>
+                <th class="pb-3">Check-Out</th>
+                <th class="pb-3">Hours</th>
+                <th class="pb-3">Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr class="border-b">
+                <td class="py-4">Olamilekan Smart</td>
+                <td>Product Design</td>
+                <td>08:52 AM</td>
+                <td>05:45 PM</td>
+                <td>8h 53m</td>
+                <td>
+                  <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">
+                    Present
+                  </span>
+                </td>
+              </tr>
+
+              <tr class="border-b">
+                <td class="py-4">Ada Magdalene</td>
+                <td>Product Manager</td>
+                <td>09:15 AM</td>
+                <td>06:00 PM</td>
+                <td>8h 45m</td>
+                <td>
+                  <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">
+                    Remote
+                  </span>
+                </td>
+              </tr>
+
+              <tr class="border-b">
+                <td class="py-4">Onifade Adeola</td>
+                <td>Engineering</td>
+                <td>09:45 AM</td>
+                <td>05:30 PM</td>
+                <td>7h 45m</td>
+                <td>
+                  <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs">
+                    Late
+                  </span>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="py-4">Akintunde Olayemi</td>
+                <td>Operations</td>
+                <td>--</td>
+                <td>--</td>
+                <td>0h 0m</td>
+                <td>
+                  <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs">
+                    Absent
+                  </span>
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+      <!-- ACTIVITY -->
+      <div class="bg-white rounded-xl p-5">
+
+        <h3 class="font-semibold mb-5">
+          Recent Activity
+        </h3>
+
+        <div class="space-y-5 text-sm">
+
+          <div>
+            <p class="font-medium">
+              Late Arrival
+            </p>
+            <p class="text-gray-400">
+              David checked in 20 mins late
+            </p>
+          </div>
+
+          <div>
+            <p class="font-medium">
+              Increased Absence
+            </p>
+            <p class="text-gray-400">
+              Sara reported sick
+            </p>
+          </div>
+
+          <div>
+            <p class="font-medium">
+              Remote Approved
+            </p>
+            <p class="text-gray-400">
+              Kate has been approved
+            </p>
+          </div>
+
+          <div>
+            <p class="font-medium">
+              Attendance Verified
+            </p>
+            <p class="text-gray-400">
+              98% daily rate achieved
+            </p>
+          </div>
+
+        </div>
+
+        <button class="mt-6 text-blue-600 text-sm font-medium">
+          View All Notifications
+        </button>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+</body>
+</html>

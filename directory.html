@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Directory Dashboard</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="Directory.js" defer></script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Remix Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+
+</head>
+
+<body class="bg-[#f5f7fb] font-['Inter']">
+
+  <div class="flex min-h-screen">
+
+    <!-- SIDEBAR -->
+      <aside class="w-[260px] bg-[#eef2f7] border-r border-blue-500 border-2 ">
+
+        <!-- LOGO -->
+        <div class="mb-14 ml-8">
+
+          <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780245572/Text_e0vh6o.png" alt="HR Africa logo" class="w-[60%] pt-8">
+
+        </div>
+
+        <!-- MENU -->
+        <nav class="ml-6">
+
+          <!-- ITEM -->
+          <a href="dashboard.html"
+            class="flex items-center gap-3 text-gray-700 hover:bg-blue-700 hover:text-white transition p-4 rounded-xl hover:text-white ">
+
+            <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Dashboard_button_bxsf4e.png" alt="" class="hover:invert w-[10%]">
+
+            Dashboard
+
+
+          </a>
+
+          <!-- ACTIVE -->
+          <a href="directory.html"
+            class="flex items-center gap-3 text-gray-700 hover:bg-blue-700 hover:text-white transition p-4 rounded-xl">
+            <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407708/Icon_2_hs0hvr.png" alt=""  >
+
+            Directory
+
+          </a>
+
+          <!-- ITEM -->
+          <a href="recruitment.html"
+            class="flex items-center gap-3 text-gray-700 hover:bg-blue-700 hover:text-white transition p-4 rounded-xl">
+
+            <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407708/Icon_3_ycnezx.png" alt="Recruitment Logo" class="hover:invert">
+
+            Recruitment
+
+          </a>
+
+          <!-- ITEM -->
+          <a href="attendance.html"
+            class="flex items-center gap-3 text-gray-700 hover:bg-blue-700 hover:text-white transition p-4 rounded-xl">
+
+            <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780408183/Container_2_egkx1n.png" alt="Attendance logo" class="hover:invert">
+
+            Attendance
+
+          </a>
+
+          <!-- ITEM -->
+          <a href="leave.html"
+            class="flex items-center gap-3 text-gray-700 hover:bg-blue-700 hover:text-white transition p-4 rounded-xl">
+
+            <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407800/Icon_5_esqxfl.png" alt="Leave management logo" class="hover:invert">
+
+            Leave Management
+
+          </a>
+
+          <!-- ITEM -->
+          <a href="#"
+            class="flex items-center gap-3 text-gray-700 hover:bg-blue-700  hover:text-white transition p-4 rounded-xl">
+
+            <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Container_ax5qwf.png" alt="payroll logo" class="hover:invert">
+
+            Payroll
+
+          </a>
+
+          <!-- ITEM -->
+
+          <a href="#"
+            class="flex items-center gap-3 text-gray-700 hover:bg-blue-700 hover:text-white transition p-4 rounded-xl">
+
+            <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Icon_4_inxem4.png" alt="Analytics logo" class="hover:invert">
+
+            Analytics
+
+          </a>
+
+          <!-- ITEM -->
+          <a href="#"
+            class="flex items-center gap-3 text-gray-700 hover:bg-blue-700 hover:text-white transition p-4 rounded-xl">
+
+            <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/ion_people-outline_e3qrc7.png" alt="Roles and permission logo" class="hover:invert">
+
+            Roles & Permission
+
+          </a>
+
+          <!-- ITEM -->
+          <a href="#"
+            class="flex items-center gap-3 text-gray-700 hover:bg-blue-700 hover:text-white transition p-4 rounded-xl group">
+
+            <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Container_1_qfhnrd.png" alt="settings logo" class="hover:invert">
+
+            Settings
+
+          </a>
+
+        </nav>
+
+      </aside>
+
+    <!-- MAIN -->
+    <main class="flex-1">
+
+      <!-- TOP HEADER -->
+      <header
+        class="bg-white border-b border-gray-200 px-8 py-4 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5">
+
+        <!-- TITLE -->
+        <h2 class="text-3xl font-bold text-blue-600">
+          Directory
+        </h2>
+
+        <!-- RIGHT -->
+        <div class="flex items-center gap-5">
+
+          <!-- SEARCH -->
+          <div class="relative">
+
+            <input
+              type="text"
+              placeholder="Search for employees....."
+              class="w-[300px] bg-gray-100 rounded-full py-3 pl-12 pr-5 outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+            <i class="ri-search-line absolute left-4 top-3.5 text-gray-400 text-lg"></i>
+
+          </div>
+
+          <!-- QUICK ACTION -->
+          <button
+            class="text-blue-600 font-semibold hover:text-blue-700 transition">
+            + Quick Action
+          </button>
+
+          <!-- ICONS -->
+          <button class="text-xl text-gray-700">
+            <i class="ri-notification-3-line"></i>
+          </button>
+
+          <button class="text-xl text-gray-700">
+            <i class="ri-mail-line"></i>
+          </button>
+
+          <!-- AVATAR -->
+          <img
+            src="https://i.pravatar.cc/100?img=12"
+            class="w-11 h-11 rounded-full object-cover"
+          />
+
+        </div>
+
+      </header>
+
+      <!-- CONTENT -->
+      <section class="p-8">
+
+        <!-- BACK -->
+        <button class="text-2xl mb-5">
+          <i class="ri-arrow-left-s-line"></i>
+        </button>
+
+        <!-- STATS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
+
+          <!-- CARD -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+
+            <p class="uppercase text-xs text-gray-400 font-semibold">
+              Total Employees
+            </p>
+
+            <div class="flex justify-between items-end mt-3">
+
+              <h3 class="text-5xl font-bold">
+                1,284
+              </h3>
+
+              <span
+                class="bg-green-100 text-green-600 text-sm px-3 py-1 rounded-full">
+                +12%
+              </span>
+
+            </div>
+
+          </div>
+
+          <!-- CARD -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+
+            <p class="uppercase text-xs text-gray-400 font-semibold">
+              On-site
+            </p>
+
+            <div class="flex justify-between items-end mt-3">
+
+              <h3 class="text-5xl font-bold">
+                842
+              </h3>
+
+              <span class="text-gray-400 text-sm">
+                67.5%
+              </span>
+
+            </div>
+
+          </div>
+
+          <!-- CARD -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+
+            <p class="uppercase text-xs text-gray-400 font-semibold">
+              Remote
+            </p>
+
+            <div class="flex justify-between items-end mt-3">
+
+              <h3 class="text-5xl font-bold">
+                364
+              </h3>
+
+              <span class="text-gray-400 text-sm">
+                29.1%
+              </span>
+
+            </div>
+
+          </div>
+
+          <!-- CARD -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+
+            <p class="uppercase text-xs text-gray-400 font-semibold">
+              Avg. Performance
+            </p>
+
+            <div class="flex justify-between items-end mt-3">
+
+              <h3 class="text-5xl font-bold">
+                4.8
+              </h3>
+
+              <div class="text-yellow-400 text-lg">
+                ★★★★★
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- TABLE BOX -->
+        <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+
+          <!-- TOP ACTION -->
+          <div
+            class="p-5 border-b border-gray-200 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5">
+
+            <!-- LEFT -->
+            <div class="flex flex-wrap items-center gap-3">
+
+              <button
+                class="bg-gray-100 border border-gray-200 text-gray-600 px-4 py-2 rounded-lg text-sm">
+                ☑ 24 selected
+              </button>
+
+              <button
+                class="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">
+                <i class="ri-upload-line"></i>
+                Export
+              </button>
+
+              <button
+                class="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">
+                <i class="ri-pencil-line"></i>
+                Bulk Edit
+              </button>
+
+              <button
+                id="deleteBtn"
+                class="border border-red-300 text-red-500 px-4 py-2 rounded-lg text-sm hover:bg-red-50 transition">
+                <i class="ri-delete-bin-line"></i>
+                Delete
+              </button>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="flex items-center gap-5 text-xl text-gray-500">
+
+              <button>
+                <i class="ri-filter-3-line"></i>
+              </button>
+
+              <button>
+                <i class="ri-layout-grid-line"></i>
+              </button>
+
+            </div>
+
+          </div>
+
+          <!-- TABLE -->
+          <div class="overflow-x-auto">
+
+            <table class="w-full">
+
+              <!-- HEAD -->
+              <thead class="bg-[#f4f2ff] text-left">
+
+                <tr class="text-sm text-gray-500">
+
+                  <th class="p-5">
+                    <input type="checkbox">
+                  </th>
+
+                  <th class="p-5">EMPLOYEE</th>
+
+                  <th class="p-5">ROLE & DEPT</th>
+
+                  <th class="p-5">LOCATION</th>
+
+                  <th class="p-5">STATUS</th>
+
+                  <th class="p-5">PERFORMANCE</th>
+
+                  <th class="p-5"></th>
+
+                </tr>
+
+              </thead>
+
+              <!-- BODY -->
+              <tbody>
+
+                <!-- ROW -->
+                <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+
+                  <td class="p-5">
+                    <input type="checkbox">
+                  </td>
+
+                  <!-- EMPLOYEE -->
+                  <td class="p-5">
+
+                    <div class="flex items-center gap-4">
+
+                      <img
+                        src="https://i.pravatar.cc/100?img=14"
+                        class="w-12 h-12 rounded-full object-cover"
+                      />
+
+                      <div>
+
+                        <h4 class="font-bold text-gray-800">
+                          Olamilekan Smart
+                        </h4>
+
+                        <p class="text-sm text-gray-400">
+                          olamilekan.s@hrfa.com
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </td>
+
+                  <!-- ROLE -->
+                  <td class="p-5">
+
+                    <h4 class="font-semibold">
+                      Senior UX Designer
+                    </h4>
+
+                    <p class="text-sm text-gray-400">
+                      Product Design
+                    </p>
+
+                  </td>
+
+                  <!-- LOCATION -->
+                  <td class="p-5 text-gray-500">
+                    New York, USA
+                  </td>
+
+                  <!-- STATUS -->
+                  <td class="p-3">
+
+                    <span
+                      class="bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm ">
+                      ● On-site
+                    </span>
+
+                  </td>
+
+                  <!-- PERFORMANCE -->
+                  <td class="p-5">
+
+                    <div class="w-[120px] h-2 bg-gray-200 rounded-full overflow-hidden">
+
+                      <div class="w-[85%] h-full bg-blue-600"></div>
+
+                    </div>
+
+                    <p class="text-sm text-gray-500 mt-2">
+                      Exceeds Expectations
+                    </p>
+
+                  </td>
+
+                  <!-- MENU -->
+                  <td class="p-5">
+                    <button class="text-gray-500 text-xl">
+                      <i class="ri-more-2-fill"></i>
+                    </button>
+                  </td>
+
+                </tr>
+
+                <!-- ROW -->
+                <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+
+                  <td class="p-5">
+                    <input type="checkbox">
+                  </td>
+
+                  <td class="p-5">
+
+                    <div class="flex items-center gap-4">
+
+                      <img
+                        src="https://i.pravatar.cc/100?img=32"
+                        class="w-12 h-12 rounded-full object-cover"
+                      />
+
+                      <div>
+
+                        <h4 class="font-bold text-gray-800">
+                          Ada Magdalene
+                        </h4>
+
+                        <p class="text-sm text-gray-400">
+                          a.magdalene@hrfa.com
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </td>
+
+                  <td class="p-5">
+
+                    <h4 class="font-semibold">
+                      Product Lead
+                    </h4>
+
+                    <p class="text-sm text-gray-400">
+                      Product Manager
+                    </p>
+
+                  </td>
+
+                  <td class="p-5 text-gray-500">
+                    Vancouver, Canada
+                  </td>
+
+                  <td class="p-2">
+
+                    <span
+                      class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm">
+                      ● Remote
+                    </span>
+
+                  </td>
+
+                  <td class="p-5">
+
+                    <div class="w-[120px] h-2 bg-gray-200 rounded-full overflow-hidden">
+
+                      <div class="w-[75%] h-full bg-blue-600"></div>
+
+                    </div>
+
+                    <p class="text-sm text-gray-500 mt-2">
+                      Strong Performance
+                    </p>
+
+                  </td>
+
+                  <td class="p-5">
+                    <button class="text-gray-500 text-xl">
+                      <i class="ri-more-2-fill"></i>
+                    </button>
+                  </td>
+
+                </tr>
+
+                <!-- ROW -->
+                <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+
+                  <td class="p-5">
+                    <input type="checkbox">
+                  </td>
+
+                  <td class="p-5">
+
+                    <div class="flex items-center gap-4">
+
+                      <img
+                        src="https://i.pravatar.cc/100?img=15"
+                        class="w-12 h-12 rounded-full object-cover"
+                      />
+
+                      <div>
+
+                        <h4 class="font-bold text-gray-800">
+                          Onifade Adeola
+                        </h4>
+
+                        <p class="text-sm text-gray-400">
+                          a.onifade@hrfa.com
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </td>
+
+                  <td class="p-5">
+
+                    <h4 class="font-semibold">
+                      Head of Sales
+                    </h4>
+
+                    <p class="text-sm text-gray-400">
+                      Sales
+                    </p>
+
+                  </td>
+
+                  <td class="p-5 text-gray-500">
+                    London, UK
+                  </td>
+
+                  <td class="p-3">
+
+                    <span
+                      class="bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm">
+                      ● On-site
+                    </span>
+
+                  </td>
+
+                  <td class="p-5">
+
+                    <div class="w-[120px] h-2 bg-gray-200 rounded-full overflow-hidden">
+
+                      <div class="w-[70%] h-full bg-blue-600"></div>
+
+                    </div>
+
+                    <p class="text-sm text-gray-500 mt-2">
+                      Meeting Standards
+                    </p>
+
+                  </td>
+
+                  <td class="p-5">
+                    <button class="text-gray-500 text-xl">
+                      <i class="ri-more-2-fill"></i>
+                    </button>
+                  </td>
+
+                </tr>
+
+                <!-- ROW -->
+                <tr class="hover:bg-gray-50 transition">
+
+                  <td class="p-5">
+                    <input type="checkbox">
+                  </td>
+
+                  <td class="p-5">
+
+                    <div class="flex items-center gap-4">
+
+                      <img
+                        src="https://i.pravatar.cc/100?img=11"
+                        class="w-12 h-12 rounded-full object-cover"
+                      />
+
+                      <div>
+
+                        <h4 class="font-bold text-gray-800">
+                          Akintumile Olayemi
+                        </h4>
+
+                        <p class="text-sm text-gray-400">
+                          a.olayemi@hrfa.com
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </td>
+
+                  <td class="p-5">
+
+                    <h4 class="font-semibold">
+                      Marketing Lead
+                    </h4>
+
+                    <p class="text-sm text-gray-400">
+                      Growth
+                    </p>
+
+                  </td>
+
+                  <td class="p-5 text-gray-500">
+                    Madrid, Spain
+                  </td>
+
+                  <td class="p-5">
+
+                    <span
+                      class="bg-gray-200 text-gray-700 px-4 py-1 rounded-full text-sm">
+                      ● On Leave
+                    </span>
+
+                  </td>
+
+                  <td class="p-5">
+
+                    <div class="w-[120px] h-2 bg-gray-200 rounded-full overflow-hidden">
+
+                      <div class="w-[92%] h-full bg-blue-600"></div>
+
+                    </div>
+
+                    <p class="text-sm text-gray-500 mt-2">
+                      Exceeds Expectations
+                    </p>
+
+                  </td>
+
+                  <td class="p-5">
+                    <button class="text-gray-500 text-xl">
+                      <i class="ri-more-2-fill"></i>
+                    </button>
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+          <!-- PAGINATION -->
+          <div
+            class="p-5 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+
+            <p class="text-sm text-gray-400">
+              Showing 1 to 4 of 1,248 entries
+            </p>
+
+            <div class="flex items-center gap-3">
+
+              <button class="text-gray-400 text-xl">
+                <i class="ri-arrow-left-s-line"></i>
+              </button>
+
+              <button
+                class="w-10 h-10 rounded-lg hover:bg-blue-700">
+                1
+              </button>
+
+              <button class="w-10 h-10 rounded-lg hover:bg-blue-700">
+                2
+              </button>
+
+              <button class="w-10 h-10 rounded-lg hover:bg-blue-700">
+                3
+              </button>
+
+              <span class="text-gray-400">
+                ...
+              </span>
+              
+              <button class="w-10 h-10 rounded-lg hover:bg-gray-100">
+                312
+              </button>
+
+              <button class="text-gray-400 text-xl">
+                <i class="ri-arrow-right-s-line"></i>
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- EXTERNAL JS -->
+  
+
+</body>
+</html>
