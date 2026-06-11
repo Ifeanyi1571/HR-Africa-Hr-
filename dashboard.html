@@ -127,10 +127,8 @@
                     <p class="text-gray-500 text-sm hover:text-white">
                         TOTAL EMPLOYEES
                     </p>
-                    <h3 
-                    id="totalEmployees"
-                    class="text-4xl font-bold mt-2">
-                        0
+                    <h3 class="text-4xl font-bold mt-2">
+                        1,284
                     </h3>
                 </div>
 
@@ -138,10 +136,8 @@
                     <p class="text-gray-500 text-sm hover:text-white">
                         ACTIVE HIRINGS
                     </p>
-                    <h3 
-                    id="activeHiring"
-                    class="text-4xl font-bold mt-2">
-                        0
+                    <h3 class="text-4xl font-bold mt-2">
+                        43
                     </h3>
                 </div>
 
@@ -149,10 +145,8 @@
                     <p class="text-gray-500 text-sm hover:text-white">
                         LEAVE REQUESTS
                     </p>
-                    <h3 
-                    id="leaveRequest"
-                    class="text-4xl font-bold mt-2">
-                        0
+                    <h3 class="text-4xl font-bold mt-2">
+                        18
                     </h3>
                 </div>
 
@@ -160,10 +154,8 @@
                     <p class="text-gray-500 text-sm hover:text-white">
                         OPEN POSITIONS
                     </p>
-                    <h3 
-                    id="openPositions"
-                    class="text-4xl font-bold mt-2">
-                        0
+                    <h3 class="text-4xl font-bold mt-2">
+                        12
                     </h3>
                 </div>
 
@@ -339,32 +331,6 @@ background:#2563eb;
 color:white;
 }
 </style>
-
-<script>
-    const token = localStorage.getItem("token");
-
-async function loadDashboard() {
-    try {
-        const response = await fetch(
-            "https://hrflow-backend-nf0t.onrender.com/api/analytics/dashboard",
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            }
-        );
-
-        const data = await response.json();
-
-        console.log(data);
-
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-loadDashboard();
-</script>
 
 </body>
 </html>
