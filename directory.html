@@ -8,7 +8,6 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="Directory.js" defer></script>
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -213,7 +212,7 @@
 
             <div class="flex justify-between items-end mt-3">
 
-              <h3 class="text-5xl font-bold">
+              <h3 class="text-5xl font-bold" id="total-employees">
                 1,284
               </h3>
 
@@ -373,7 +372,7 @@
               </thead>
 
               <!-- BODY -->
-              <tbody>
+              <tbody id="tbody">
 
                 <!-- ROW -->
                 <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
@@ -754,8 +753,7 @@
 
   </div>
 
-  <!-- EXTERNAL JS -->
-  
+ <script src="js/directory.js"></script>
 
 </body>
 </html>

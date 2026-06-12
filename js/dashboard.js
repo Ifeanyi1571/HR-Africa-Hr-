@@ -12,7 +12,7 @@ const openPositions = document.getElementById("open-positions");
 const loadDashbord = async () => {
     try {
         const res = await fetch("https://hrflow-backend-nf0t.onrender.com/api/analytics/dashboard", {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: `Bearer ${token}` }
         })
 
         if (!res.ok) {
