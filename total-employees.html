@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Dashboard Layout</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ["Inter", "sans-serif"],
+            jakarta: ["Plus Jakarta Sans", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+</head>
+
+<body class="bg-[#F7F8FC]">
+
+<div class="flex min-h-screen">
+
+  <!-- SIDEBAR -->
+  <aside
+    id="sidebar"
+    class="fixed lg:relative 
+    z-50 
+    min-h-screen 
+    w-[280px] 
+    bg-[#E7F0FF] 
+    sticky top-0 h-screen
+    border-r border-gray-200 
+    transition-transform duration-300
+    -translate-x-full
+    flex flex-col justify-between
+    lg:translate-x-0 
+    font-jakarta text-md font-semibold
+    "
+  >
+
+    <!-- LOGO -->
+    <div class="px-6 py-4">
+      <img
+        src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780245572/Text_e0vh6o.png"
+        alt="HRFlow Africa"
+        class="w-[180px]"
+      >
+    </div>
+
+
+    
+    <!-- NAVIGATION -->
+    <nav class="px-4 space-y-2 space-x-6 font-jakarta">
+
+      <!-- dashboard -->
+      <a
+  href="#"
+  class="group flex items-center gap-4 px-10 py-3 rounded-xl text-[#343A40] hover:bg-[#3856D6] hover:text-white transition-all duration-300"
+>
+  <img
+    src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Dashboard_button_bxsf4e.png"
+    alt="Dashboard"
+    class="w-5 h-5 transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+  />
+
+  <span>Dashboard</span>
+</a>
+
+     <!-- directory -->
+      <a
+  href="#"
+  class="group flex items-center gap-4 px-4 py-3 rounded-xl text-[#343A40] hover:bg-[#3856D6] hover:text-white transition-all duration-300"
+>
+  <img
+    src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407708/Icon_2_hs0hvr.png"
+    alt="Directory"
+    class="w-5 h-5 transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+  />
+
+  <span>Directory</span>
+</a>
+
+    <!-- recruitment -->
+      <a
+  href="#"
+  class="group flex items-center gap-4 px-4 py-3 rounded-xl text-[#343A40] hover:bg-[#3856D6] hover:text-white transition-all duration-300"
+>
+  <img
+    src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407708/Icon_3_ycnezx.png"
+    alt="Recruitment"
+    class="w-5 h-5 transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+  />
+
+  <span>Recruitment</span>
+</a>
+
+    <!-- attendance -->
+      <a
+  href="#"
+  class="group flex items-center gap-4 px-4 py-3 rounded-xl text-[#343A40] hover:bg-[#3856D6] hover:text-white transition-all duration-300"
+>
+  <img
+    src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780408183/Container_2_egkx1n.png"
+    alt="Attendance"
+    class="w-5 h-5 transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+  />
+
+  <span>Attendance</span>
+</a>
+
+    <!-- leave -->
+    <a
+  href="#"
+  class="group flex items-center gap-4 px-4 py-3 rounded-xl text-[#343A40] hover:bg-[#3856D6] hover:text-white transition-all duration-300"
+>
+  <img
+    src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407800/Icon_5_esqxfl.png"
+    alt="Leave"
+    class="w-5 h-5 transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+  />
+
+  <span>Leave Management</span>
+</a>
+    
+    <!-- payroll -->
+    <a
+  href="#"
+  class="group flex items-center gap-4 px-4 py-3 rounded-xl text-[#343A40] hover:bg-[#3856D6] hover:text-white transition-all duration-300"
+>
+  <img
+    src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Container_ax5qwf.png"
+    alt="Payroll"
+    class="w-5 h-5 transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+  />
+
+  <span>Payroll</span>
+</a>
+
+    <!-- analytics -->
+<a
+  href="#"
+  class="group flex items-center gap-4 px-4 py-3 rounded-xl text-[#343A40] hover:bg-[#3856D6] hover:text-white transition-all duration-300"
+>
+  <img
+    src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Icon_4_inxem4.png"
+    alt="Analytics"
+    class="w-5 h-5 transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+  />
+
+  <span>Analytics</span>
+</a>
+
+
+        <!-- roles and permission -->
+<a
+  href="#"
+  class="group flex items-center gap-4 px-4 py-3 rounded-xl text-[#343A40] hover:bg-[#3856D6] hover:text-white transition-all duration-300"
+>
+  <img
+    src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/ion_people-outline_e3qrc7.png"
+    alt="Roles"
+    class="w-5 h-5 transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+  />
+
+  <span>Roles & Permission</span>
+</a>
+
+<!-- divider -->
+<!-- <div class="border-t border-[#D8DEE9] my-4"></div> -->
+
+    <!-- settings -->
+     <a
+  href="#"
+  class="flex items-center gap-4 px-4 py-3 rounded-xl text-[#343A40] hover:bg-[#3856D6] hover:text-white transition-all duration-300"
+>
+  <img
+    src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Container_1_qfhnrd.png"
+    alt="Settings"
+    class="w-5 h-5 transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+  />
+
+  <span>Settings</span>
+</a>
+       
+    </nav>
+
+    <!-- BOTTOM -->
+  
+    <!-- divider -->
+    
+
+    <div class="mx-auto w-full px-4 ">
+    
+      <div class="border-t border-[grey]"></div>
+        <!-- logout -->
+    <button
+  class="group flex items-center gap-4 px-4 py-3 rounded-xl text-[#343A40] hover:bg-[#3856D6] hover:text-white transition-all duration-300 w-full text-"
+>
+  <img
+    src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407800/Group_qlqzro.png"
+    alt="Logout"
+    class="w-5 h-5 transition-all duration-300 group-hover:brightness-0 group-hover:invert "
+  />
+
+  <span>Log Out</span>
+</button>
+    
+    
+      
+      <button
+        id="supportBtn"
+        class="w-full mt-3 bg-[#3856D6] text-white py-3 rounded-xl font-inter font-medium hover:bg-blue-700 transition-all duration-300 mb-10"
+      >
+        Support
+      </button>
+
+    </div>
+    
+  </aside>
+
+<div
+  id="overlay"
+  class="fixed inset-0 bg-black/40 hidden z-40 lg:hidden"
+></div>
+
+
+
+  <!-- MAIN WRAPPER -->
+  <div class="flex-1 ml-0 flex flex-col">
+
+    <!-- TOPBAR -->
+    <header
+      id="topbar"
+      class="h-[90px] bg-white border-b border-gray-200 px-6 lg:px-8 flex items-center justify-between"
+    >
+
+      <!-- LEFT -->
+      <div class="flex items-center gap-4">
+
+        <button
+          id="menuToggle"
+          class="lg:hidden text-2xl"
+        >
+          ☰
+        </button>
+
+        <div
+          class="hidden md:flex items-center gap-3 bg-[#F2F4F7] rounded-xl px-4 py-3 w-[550px]"
+        >
+
+          <span class="text-gray-500"><img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780434723/Icon_8_jdeezs.png" alt="search"></span>
+
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search employee leave history..."
+            class="w-full bg-transparent outline-none font-jakarta text-sm"
+          >
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="flex items-center gap-5">
+
+        <button id="notificationBtn">
+          <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780434724/Icon_6_dshtaj.png" alt="bell">
+        </button>
+
+        <button id="helpBtn">
+          <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780434723/Icon_7_giyvli.png" alt="help">
+        </button>
+
+        <button id="settingsBtn">
+          <img src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780407707/Container_1_qfhnrd.png" alt="settings">
+        </button>
+
+        <div class="h-8 border-l border-gray-300"></div>
+
+        <div class="hidden md:block text-right">
+
+          <p class="font-inter text-sm font-semibold">
+            Rosita Andrew
+          </p>
+
+          <p class="font-jakarta text-xs text-gray-500">
+            HR Director
+          </p>
+
+        </div>
+
+        <img
+          src="https://res.cloudinary.com/dnmaevqsp/image/upload/v1780434723/Ellipse_11_yv6wht.png"
+          alt="Profile"
+          class="w-11 h-11 rounded-full object-cover"
+        >
+
+      </div>
+
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main
+      id="mainContent"
+      class="flex-1 p-6 lg:p-8"
+    >
+
+    <main class="flex-1 p-6 bg-gray-50">
+
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-6">
+    <div>
+      <h1 class="text-3xl font-bold">Employees</h1>
+      <p class="text-gray-500">
+        Global headcount: 1,284 professionals
+      </p>
+    </div>
+
+    <div class="flex gap-3">
+      <button class="border px-4 py-2 rounded-lg">
+        Export
+      </button>
+
+      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+        <a href="add-employee.html">Add Employee</a>
+        
+      </button>
+    </div>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+
+    <div class="bg-white p-5 rounded-xl border-l-4 border-green-500 shadow">
+      <p class="text-gray-500 text-sm">ACTIVE STATUS</p>
+      <h2 class="text-3xl font-bold">1,192</h2>
+      <p class="text-green-600 text-sm">
+        92.8% engagement rate
+      </p>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl border-l-4 border-yellow-500 shadow">
+      <p class="text-gray-500 text-sm">NEW HIRES (30D)</p>
+      <h2 class="text-3xl font-bold">48</h2>
+      <p class="text-green-600 text-sm">
+        12 onboardings pending
+      </p>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl border-l-4 border-blue-500 shadow">
+      <p class="text-gray-500 text-sm">DEPARTMENTS</p>
+      <h2 class="text-3xl font-bold">14</h2>
+      <p class="text-gray-500 text-sm">
+        4 open roles
+      </p>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl border-l-4 border-indigo-500 shadow">
+      <p class="text-gray-500 text-sm">TOTAL EMPLOYEES</p>
+      <h2 class="text-3xl font-bold">1,284</h2>
+      <p class="text-green-600 text-sm">
+        +24 this month
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Employee Table -->
+  <div class="bg-white rounded-xl shadow mb-6 overflow-hidden">
+
+    <div class="flex gap-6 p-4 border-b text-sm">
+      <button class="bg-blue-600 text-white px-4 py-2 rounded-full">
+        All Employees
+      </button>
+
+      <button>Engineering</button>
+      <button>Marketing</button>
+      <button>Sales</button>
+      <button>Design</button>
+    </div>
+
+    <table class="w-full">
+
+      <thead class="bg-gray-50 text-left">
+        <tr>
+          <th class="p-4">Employee</th>
+          <th>ID</th>
+          <th>Dept/Position</th>
+          <th>Status</th>
+          <th>Contact</th>
+          <th>Joined</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr class="border-t">
+          <td class="p-4">
+            <div class="font-semibold">
+              Obiani Smart
+            </div>
+            <div class="text-sm text-gray-500">
+              smart@email.com
+            </div>
+          </td>
+
+          <td>EMP-3201</td>
+
+          <td>
+            Senior UI Designer
+          </td>
+
+          <td>
+            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">
+              Active
+            </span>
+          </td>
+
+          <td>+1 555 456 3458</td>
+
+          <td>Oct 18, 2021</td>
+        </tr>
+
+        <tr class="border-t">
+          <td class="p-4">
+            <div class="font-semibold">
+              Ada Mgbanite
+            </div>
+            <div class="text-sm text-gray-500">
+              ada@email.com
+            </div>
+          </td>
+
+          <td>EMP-0222</td>
+
+          <td>
+            Product Lead
+          </td>
+
+          <td>
+            <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs">
+              On Leave
+            </span>
+          </td>
+
+          <td>+1 555 987 6543</td>
+
+          <td>Jan 04, 2022</td>
+        </tr>
+
+        <tr class="border-t">
+          <td class="p-4">
+            <div class="font-semibold">
+              Chidie Adols
+            </div>
+            <div class="text-sm text-gray-500">
+              chidie@email.com
+            </div>
+          </td>
+
+          <td>EMP-4419</td>
+
+          <td>
+            Head of Sales
+          </td>
+
+          <td>
+            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">
+              Active
+            </span>
+          </td>
+
+          <td>+1 555 222 1124</td>
+
+          <td>Mar 19, 2022</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <!-- Bottom Charts -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <!-- Employee Distribution -->
+    <div class="lg:col-span-2 bg-white rounded-xl shadow p-6">
+
+      <div class="flex justify-between mb-4">
+        <h2 class="font-semibold">
+          Employee Distribution
+        </h2>
+
+        <button class="text-sm text-gray-500">
+          Yearly View
+        </button>
+      </div>
+
+      <div class="h-64 flex items-end gap-3">
+
+        <div class="bg-blue-500 w-full h-32 rounded"></div>
+        <div class="bg-blue-600 w-full h-36 rounded"></div>
+        <div class="bg-blue-700 w-full h-40 rounded"></div>
+        <div class="bg-blue-800 w-full h-44 rounded"></div>
+        <div class="bg-blue-900 w-full h-48 rounded"></div>
+
+      </div>
+
+    </div>
+
+    <!-- Department Breakdown -->
+    <div class="bg-white rounded-xl shadow p-6">
+
+      <h2 class="font-semibold mb-6">
+        Department Breakdown
+      </h2>
+
+      <div class="flex justify-center mb-6">
+
+        <div class="w-40 h-40 rounded-full border-[16px] border-blue-600 flex items-center justify-center">
+          <div class="text-center">
+            <h3 class="text-3xl font-bold">14</h3>
+            <p class="text-gray-500 text-sm">
+              TOTAL DEPTS
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="space-y-2 text-sm">
+        <p>• Engineering (45%)</p>
+        <p>• Marketing (25%)</p>
+        <p>• Sales (18%)</p>
+        <p>• Others (12%)</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+    
+
+    </main>
+
+  </div>
+
+</div>
+
+<script src="./dashboard-layout.js"></script>
+
+</body>
+</html>
