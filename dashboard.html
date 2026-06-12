@@ -6,7 +6,7 @@
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="HRdashboard.js"></script>
+    
     
 
     <!-- Font Awesome -->
@@ -105,10 +105,10 @@
                         class="w-10 h-10 rounded-full"
                     >
                     <div>
-                        <h4 class="font-semibold">
+                        <h4 class="font-semibold" id="user-name">
                             Rosita Andrew
                         </h4>
-                        <p class="text-sm text-gray-500">
+                        <p class="text-sm text-gray-500" id="user-role">
                             HR Director
                         </p>
                     </div>
@@ -127,7 +127,7 @@
                     <p class="text-gray-500 text-sm hover:text-white">
                         TOTAL EMPLOYEES
                     </p>
-                    <h3 class="text-4xl font-bold mt-2">
+                    <h3 class="text-4xl font-bold mt-2" id="total-employees">
                         1,284
                     </h3>
                 </div>
@@ -136,7 +136,7 @@
                     <p class="text-gray-500 text-sm hover:text-white">
                         ACTIVE HIRINGS
                     </p>
-                    <h3 class="text-4xl font-bold mt-2">
+                    <h3 class="text-4xl font-bold mt-2" id="active-hirings">
                         43
                     </h3>
                 </div>
@@ -145,7 +145,7 @@
                     <p class="text-gray-500 text-sm hover:text-white">
                         LEAVE REQUESTS
                     </p>
-                    <h3 class="text-4xl font-bold mt-2">
+                    <h3 class="text-4xl font-bold mt-2" id="leave-requests">
                         18
                     </h3>
                 </div>
@@ -154,7 +154,7 @@
                     <p class="text-gray-500 text-sm hover:text-white">
                         OPEN POSITIONS
                     </p>
-                    <h3 class="text-4xl font-bold mt-2">
+                    <h3 class="text-4xl font-bold mt-2" id="open-positions">
                         12
                     </h3>
                 </div>
@@ -231,7 +231,9 @@
                         </a>
                     </div>
 
-                    <div id="activity-list" class="space-y-5"></div>
+                    <div id="activity-list" class="space-y-5">
+                        
+                    </div>
 
                 </div>
 
@@ -331,6 +333,8 @@ background:#2563eb;
 color:white;
 }
 </style>
+
+<script src="js/dashboard.js"></script>
 
 </body>
 </html>
